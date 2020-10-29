@@ -278,21 +278,25 @@ function displayOrder(){
 		fName += " ";
 	}
 	message += "Thank you " + fName + lName;
-	message += " for your order!<br><br>";
+	//message += " for your order!<br><br>";
+	message += " for your order!\n\n";
 
 	CalcTotal();
 
-	message += "Order:<br>"
+	//message += "Order:<br>"
+	message += "Order:\n"
 	for(i = 0; i < 5; i++){
 		numItem = document.getElementsByName('quan' + i);
 		val = numItem[0].value;
 		if(val != 0){
-			message += "(" + val + ") " + menuItems[i].name + "<br>";
+			//message += "(" + val + ") " + menuItems[i].name + "<br>";
+			message += "(" + val + ") " + menuItems[i].name + "\n";
 		}
 	}
 
 	total = document.getElementById('total');
-	message += "Total: $" + total.value + "<br><br>";
+	//message += "Total: $" + total.value + "<br><br>";
+	message += "Total: $" + total.value + "\n\n";
 
 
 	pickupTime = 0;
@@ -321,11 +325,13 @@ function displayOrder(){
 		hours == 0;
 	}
 	var time = hours + ":" + min;
-	message += pickupMessage + time + "<br>";
+	//message += pickupMessage + time + "<br>";
+	message += pickupMessage + time + "\n";
 
-	var finalMessage = HTML + "<body><h1>Jade Delight Order</h1><form><p>" + message + "</p><form></body";
-	newWindowObj = window.open('https://patmgaughan.github.io/JadeDelight/order.html', '_blank');
-	newWindowObj.document.write(finalMessage);
+	// var finalMessage = HTML + "<body><h1>Jade Delight Order</h1><form><p>" + message + "</p><form></body";
+	// newWindowObj = window.open('about:blank', '_blank');
+	// newWindowObj.document.write(finalMessage);
+	alert(message);
 }
 
 function toggelAddress() {
@@ -412,7 +418,7 @@ window.onload = function() {
     <th>Select Item</th>
     <th>Item Name</th>
     <th>Cost Each</th>
-    <th>Total Cost</th> 
+    <th>Total Cost</th>
   </tr>
 <script language="javascript">
 
